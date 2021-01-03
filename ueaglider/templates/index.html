@@ -27,8 +27,12 @@ var basemaps = {
         layers: 'GEBCO_2019_Grid_2'
     }),
 
+    Ice: L.tileLayer.wms('https://geos.polarview.aq/geoserver/wms?', {
+        layers: 'polarview:antarctic_icechart_nic',
+    })
 
 };
+
 
 L.control.layers(basemaps).addTo(map);
 
