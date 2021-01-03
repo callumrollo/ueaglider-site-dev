@@ -16,3 +16,5 @@ Another GEBCO with brighter colours and no hill shade is available by replacing 
 Put both the GEBCO maps on the leaflet map as selectable layers
 
 Added Ice layer
+
+Made GEBCO the default base, added ice and EEZ as optional transparent overlays

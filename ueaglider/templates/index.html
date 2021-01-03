@@ -15,21 +15,26 @@
  <h1>A demo map with leaflet</h1>
 <div id="map" style="height: 1000px; width: 1500px;"></div>
 <script>
-let map = L.map('map').setView([52.7, 1.5], 9)
+let map = L.map('map').setView([-50, -40], 5)
 
+var gebco =  L.tileLayer.wms('https://www.gebco.net/data_and_products/gebco_web_services/2019/mapserv?', {
+    layers: 'GEBCO_2019_Grid'}).addTo(map);
 
 var basemaps = {
-    Bathymetry: L.tileLayer.wms('https://www.gebco.net/data_and_products/gebco_web_services/2019/mapserv?', {
-        layers: 'GEBCO_2019_Grid'
-    }),
-
-    'Ugly bathymetry': L.tileLayer.wms('https://www.gebco.net/data_and_products/gebco_web_services/2019/mapserv?', {
-        layers: 'GEBCO_2019_Grid_2'
-    }),
 
     Ice: L.tileLayer.wms('https://geos.polarview.aq/geoserver/wms?', {
         layers: 'polarview:antarctic_icechart_nic',
-    })
+       	opacity: 0.5,
+		format: 'image/png',
+		transparent: true
+    }),
+
+    EEZ: L.tileLayer.wms('http://geo.vliz.be/geoserver/MarineRegions/wms?', {
+		layers: 'eez_boundaries,eez', //'eez,eez_12nm,eez_24nm,eez_archipelagic_waters,eez_boundaries',
+		opacity: 0.5,
+		format: 'image/png',
+		transparent: true
+    }),
 
 };
 
